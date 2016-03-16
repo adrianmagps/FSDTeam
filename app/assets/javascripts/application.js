@@ -24,5 +24,3 @@
 //= require jquery.countTo
 //= require jquery.fitvids
 //= require main
-
-////= require_tree .
