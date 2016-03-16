@@ -14,12 +14,12 @@
 
  *= require _bootstrap-sprockets
  *= require _bootstrap
- *= require font-awesome.css.scss.erb
+ *= require font-awesome.scss.erb
  *= require flexslider
- *= require main-styles.css.scss.erb
+ *= require main-styles.scss.erb
 
- *= require font-roboto.css.scss.erb
- *= require font-raleway.css.scss.erb
+ *= require font-roboto.scss.erb
+ *= require font-raleway.scss.erb
 
 
  *= require_self
