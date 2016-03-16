@@ -11,5 +11,16 @@
  * file per style scope.
  *
  *= require_tree .
+
+ *= require _bootstrap-sprockets
+ *= require _bootstrap
+ *= require font-awesome.css.scss.erb
+ *= require flexslider
+ *= require main-styles.css.scss.erb
+
+ *= require font-roboto.css.scss.erb
+ *= require font-raleway.css.scss.erb
+
+
  *= require_self
  */

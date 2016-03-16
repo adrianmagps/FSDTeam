@@ -10,7 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require bootstrap-sprockets
+//= require bootstrap.js
+//= require jquery.easing.1.3.min
+//= require jquery.scrollto
+//= require jquery.flexslider.min
+//= require jquery.stellar
+//= require jquery.masonry.min.js
+//= require waypoints.min
+//= require waypoints-sticky.min
+//= require jquery.countTo
+//= require jquery.fitvids
+//= require main
+
+////= require_tree .

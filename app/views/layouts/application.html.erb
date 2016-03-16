@@ -1,14 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
   <title>FSDTeam</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ==============================================
+  Favicons
+  =============================================== -->
+  <!--<link rel="shortcut icon" href="assets/favicon.ico">-->
+  <!--<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">-->
+  <!--<link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">-->
+  <!--<link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">-->
+
+  <!-- ==============================================
+  CSS
+  =============================================== -->
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <!--<link id="main" rel="stylesheet" href="assets/css/styles-1.css">-->
+  <!--<link id="theme" rel="stylesheet" href="assets/css/styles-1.css">-->
+  <!--<link rel="stylesheet" href="assets/css/style-switcher.css">-->
+
+  <%= javascript_include_tag 'modernizr.min' %>
+
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-spy="scroll" data-target="#main-nav" data-offset="400">
 
-<%= yield %>
+  <!--=== PAGE PRELOADER ===-->
+  <div id="page-loader"><span class="page-loader-gif">Loading...</span></div>
 
+  <!-- ==============================================
+  HEADER
+  =============================================== -->
+  <header id="home" class="parallax-bg" data-parallax-background="assets/header-bg.jpg" data-stellar-background-ratio=".5">
+
+    <div class="header-content">
+
+      <img class="header-logo" src="assets/logo.png" alt=""/>
+
+      <div class="flexslider header-slider" data-speed = '3000'>
+
+        <ul class="slides">
+
+          <li><h1 class="bordered-text">Welcome to <span class="primary">Quattro</span> Studio</h1></li>
+          <li><h1 class="bordered-text">We are <span class="primary">Young</span></h1></li>
+          <li><h1 class="bordered-text">We are <span class="primary">Passionate</span></h1></li>
+          <li><h1 class="bordered-text">We have <span class="primary">Fresh</span> Ideas</h1></li>
+
+        </ul>
+
+      </div><!--End home-slider -->
+
+      <a class="scroll-button scrollto" href="#about"><i class="fa fa-angle-down"></i></a>
+
+    </div>
+
+  </header><!--End header -->
+
+  <!-- ==============================================
+  MAIN NAV
+  =============================================== -->
+
+  <div id="main-nav" class="navbar">
+    <div class="container">
+
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+
+        <!-- ======= LOGO ========-->
+        <a class="navbar-brand scrollto" href="#home">
+
+          <img class="site-logo" src="assets/logo-small.png" alt="logo" />
+        </a>
+
+      </div>
+
+      <div id="site-nav" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="sr-only">
+            <a href="#home" class="scrollto">Home</a>
+          </li>
+          <li>
+            <a href="#about" class="scrollto">About</a>
+          </li>
+          <li>
+            <a href="#services" class="scrollto">Services</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="scrollto">Portfolio</a>
+          </li>
+          <li>
+            <a href="#team" class="scrollto">Team</a>
+          </li>
+          <li class="dropdown">
+            <a href="#">Blog</a>
+
+            <ul class="dropdown-menu">
+              <li><a href="blog.html">Blog Right Sidebar</a></li>
+              <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+              <li><a href="blog-no-sidebar.html">Blog No Sidebar</a></li>
+              <li class="dropdown"><a href="image-post.html">Single Post</a>
+
+                <ul class="dropdown-menu">
+                  <li><a href="image-post.html">Image Post</a></li>
+                  <li><a href="slider-post.html">Slider Post</a></li>
+                  <li><a href="video-post.html">Video Post</a></li>
+                  <li><a href="post-left-sidebar.html">Post Left Sidebar</a></li>
+                  <li><a href="post-no-sidebar.html">Post No Sidebar</a></li>
+                </ul>
+
+              </li>
+            </ul>
+
+          </li>
+          <li>
+            <a href="#contact" class="scrollto">Contact</a>
+          </li>
+        </ul>
+      </div><!--End navbar-collapse -->
+
+    </div><!--End container -->
+
+  </div><!--End main-nav -->
+
+  <%= yield %>
+
+  <!-- ==============================================
+  FOOTER
+  =============================================== -->
+  <footer id="main-footer">
+
+    <div class="container text-center">
+
+      <img class="img-responsive img-center footer-logo" src="assets/logo-black.png" alt="" />
+
+      <ul class="social-links">
+        <li><a href="#link"><i class="fa fa-twitter fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-facebook fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-google-plus fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-dribbble fa-fw"></i></a></li>
+        <li><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
+      </ul>
+      <p>&copy;2014 Quattro Theme by <a href="http://q-themes.net/" target="_blank">Qthemes</a></p>
+
+    </div>
+
+  </footer>
+
+  <!-- ==============================================
+  SCRIPTS
+  =============================================== -->
+  <%= javascript_include_tag 'application' %>
+  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script>
+
+    var mapPoint = {
+      'lat': 40.720099,
+      'lng': -74.005764,
+      'zoom' : 15,
+      'infoText':'<p>250 W Broadway\
+                  <br/>New York\
+                  <br/>NY 10013</p>',
+      'linkText':'View on Google Maps',
+      'mapAddress':'250 W Broadway, New York, NY 10013',
+      'icon': 'assets/marker.png'
+    };
+
+  </script>
 </body>
 </html>
