@@ -10,7 +10,7 @@ El sistema esta desarrollado con frameworks y plugins con una gran aceptacion en
 
 ## Frameworks 
 
-* Ruby 4.2.0
+* Ruby on Rails 4.2.0
 * JQuery 1.12
 * Bootstrap 3.4.6
 
