@@ -6,7 +6,7 @@
 
       <div class="header-content">
 
-        <img class="header-logo" src="#" alt="LOGO 280x135"/>
+        <img class="header-logo" src="http://placehold.it/280x135?text=LOGO 280x135" alt="LOGO 280x135"/>
 
         <div class="flexslider header-slider" data-speed = '3000'>
 
@@ -38,7 +38,7 @@
     <h1 class="section-title">About our Studio</h1>
     <p class="section-description">Nam id felis eu felis consequat adipiscing. Suspendisse sit amet faucibus nunc, dignissim vehicula enim.<br/>Vestibulum luctus turpis sit amet varius venenatis.</p>
 
-    <img class="img-responsive img-center scrollimation fade-up" src="assets/devices.png" width="1000" height="594" alt="Image 1000x594" />
+    <img class="img-responsive img-center scrollimation fade-up" src="http://placehold.it/1000x594" alt="Image 1000x594" />
 
     <div class="row">
 
@@ -178,7 +178,7 @@ CALL TO ACTION
 
       <div class="col-sm-6 scrollimation fade-right">
 
-        <img class="img-responsive img-center" src="assets/iMac.png" alt="" style="margin:-70px 0 40px;"/>
+        <img class="img-responsive img-center" src="http://placehold.it/450x488" alt="" style="margin:-70px 0 40px;"/>
 
       </div>
 
@@ -546,7 +546,7 @@ TEAM
       <div class="col-md-3 col-sm-6 team-member scrollimation fade-up d1">
 
         <div class="member-thumb">
-          <img class="img-responsive img-center" src="assets/member-1.jpg" alt="" />
+          <img class="img-responsive img-center" src="http://placehold.it/320x320" alt="" />
 
           <ul class="member-socials">
             <li><a href="mailto:mail@example.com"><i class="fa fa-envelope fa-fw"></i></a></li>
@@ -568,7 +568,7 @@ TEAM
       <div class="col-md-3 col-sm-6 team-member scrollimation fade-up">
 
         <div class="member-thumb">
-          <img class="img-responsive img-center" src="assets/member-2.jpg" alt="" />
+          <img class="img-responsive img-center" src="http://placehold.it/320x320" alt="" />
 
           <ul class="member-socials">
             <li><a href="mailto:mail@example.com"><i class="fa fa-envelope fa-fw"></i></a></li>
@@ -590,7 +590,7 @@ TEAM
       <div class="col-md-3 col-sm-6 team-member scrollimation fade-up">
 
         <div class="member-thumb">
-          <img class="img-responsive img-center" src="assets/member-3.jpg" alt="" />
+          <img class="img-responsive img-center" src="http://placehold.it/320x320" alt="" />
 
           <ul class="member-socials">
             <li><a href="mailto:mail@example.com"><i class="fa fa-envelope fa-fw"></i></a></li>
@@ -612,7 +612,7 @@ TEAM
       <div class="col-md-3 col-sm-6 team-member scrollimation fade-up d1">
 
         <div class="member-thumb">
-          <img class="img-responsive img-center" src="assets/member-4.jpg" alt="" />
+          <img class="img-responsive img-center" src="http://placehold.it/320x320" alt="" />
 
           <ul class="member-socials">
             <li><a href="mailto:mail@example.com"><i class="fa fa-envelope fa-fw"></i></a></li>
@@ -657,7 +657,7 @@ TESTIMONIALS
             <li>
               <div class="media">
                 <div class="pull-left">
-                  <img class="client-img img-circle" src="assets/client-1.jpg" alt=""/>
+                  <img class="client-img img-circle" src="http://placehold.it/150x150" alt=""/>
                 </div>
 
                 <div class="media-body">
@@ -669,7 +669,7 @@ TESTIMONIALS
             <li>
               <div class="media">
                 <div class="pull-left">
-                  <img class="client-img img-circle" src="assets/client-2.jpg" alt=""/>
+                  <img class="client-img img-circle" src="http://placehold.it/150x150" alt=""/>
                 </div>
 
                 <div class="media-body">
@@ -681,7 +681,7 @@ TESTIMONIALS
             <li>
               <div class="media">
                 <div class="pull-left">
-                  <img class="client-img img-circle" src="assets/client-3.jpg" alt=""/>
+                  <img class="client-img img-circle" src="http://placehold.it/150x150" alt=""/>
                 </div>
 
                 <div class="media-body">
@@ -718,7 +718,7 @@ NEWS
 
         <header class="post-header">
           <a class="post-thumb" href="image-post.html" title="Read post: Post with single featured image">
-            <img class="img-responsive" src="assets/blog/post-image-2.jpg" alt="" />
+            <img class="img-responsive" src="http://placehold.it/945x540" alt="" />
           </a>
 
           <h2 class="post-title"><a href="image-post.html" title="Read post: Post with single featured image">Post with single featured image</a></h2>
@@ -740,7 +740,7 @@ NEWS
 
         <header class="post-header">
           <a class="post-thumb" href="slider-post.html" title="Read post: Post with featured slider">
-            <img class="img-responsive" src="assets/blog/post-slider-1.jpg" alt="" />
+            <img class="img-responsive" src="http://placehold.it/945x540" alt="" />
           </a>
 
           <h2 class="post-title"><a href="slider-post.html" title="Read post: Post with featured slider">Post with featured slider</a></h2>
@@ -760,7 +760,9 @@ NEWS
 
     </div>
 
-    <p class="text-center"><a class="btn btn-fsd" href="blog.html">Read Our Blog</a></p>
+    <p class="text-center">
+      <%= link_to 'Read our blog', blog_index_path, { :class => 'btn btn-fsd' } %>
+    </p>
 
   </div>
 
