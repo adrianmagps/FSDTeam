@@ -12,44 +12,43 @@ SINGLE POST
         <article class="post-entry">
 
           <header class="post-header">
-            <h2 class="post-title">Post with single featured image</h2>
+            <h2 class="post-title"><%= @post.title %></h2>
 
             <ul class="post-meta small">
-              <li><i class="fa fa-calendar"></i><a href="#">9 December 2014</a></li>
-              <li><i class="fa fa-comments-o"></i><a href="#">14 Comments</a></li>
-              <li><i class="fa fa-folder-open-o"></i><a href="#">Web-design</a> , <a href="#">Apps</a></li>
+              <li><i class="fa fa-calendar"></i><a href="#"><%= @post.created_at.to_date.to_formatted_s :long %> </a></li>
+              <li><i class="fa fa-comments-o"></i><a href="#"><%= @post.comments.count %> Comment(s)</a></li>
+              <li><i class="fa fa-folder-open-o"></i>
+                <%= link_to @post.category.name, posts_category_path(:id => @post.category.id) %>
+              </li>
             </ul>
 
             <img class="img-responsive" src="http://placehold.it/945x540" alt="" />
           </header>
 
-          <p><strong><em>Lorem ipsum</em></strong> dolor sit amet, consectetur adipiscing elit. Proin vestibulum sodales dapibus. Proin pellentesque semper odio quis molestie. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vitae iaculis erat. Suspendisse ligula neque, pharetra eu erat sit amet, rhoncus auctor justo.</p>
+          <p class="post-summary" style="font-style: italic">
+            <%= @post.summary.html_safe %>
+          </p>
 
           <br/>
-          <h3>Heading 3</h3>
 
-          <p>Nam ligula metus, pulvinar id ullamcorper ac, condimentum nec nibh. Aliquam eget aliquet augue, eu volutpat quam. Vestibulum ut massa nec lacus ornare tempus at ac orci. Morbi commodo bibendum quam at laoreet. Nunc suscipit dapibus rhoncus. Duis a lectus pharetra ipsum feugiat eleifend. Cras non faucibus diam. Sed nec nulla enim.</p>
+          <div>
+            <%= @post.content.html_safe %>
+          </div>
 
-          <blockquote>
-            <p>Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-          </blockquote>
+          <% unless @post.tags %>
+              <footer class="post-footer">
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum sodales dapibus. Proin pellentesque semper odio quis <a href="#link">molestie</a>. </p>
+                <div class="tags-container text-right">
 
-          <footer class="post-footer">
+                  <i class="fa fa-tags"></i>
 
-            <div class="tags-container text-right">
+                  <% @post.tags.each do |t| %>
+                      <%= link_to t.name, posts_tag_path(:id => t.id), :class => 'tag' %>
+                  <% end %>
+                </div>
 
-              <i class="fa fa-tags"></i>
-
-              <a class="tag" href="#tag">These</a>
-              <a class="tag" href="#tag">Are</a>
-              <a class="tag" href="#tag">Some</a>
-              <a class="tag" href="#tag">Tags</a>
-
-            </div>
-
-          </footer>
+              </footer>
+          <% end %>
 
         </article>
 
@@ -136,7 +135,6 @@ SINGLE POST
 
             <div class="form-header">
               <h3>Leave a Comment</h3>
-              <small>You must be <a href="#">logged in</a> to post a comment</small>
             </div>
 
             <div class="row">
@@ -187,107 +185,7 @@ SINGLE POST
 
       </div>
 
-      <div id="main-sidebar" class="col-sm-4">
-
-        <div class="widget">
-
-          <h4 class="widget-title">Recent Posts</h4>
-
-          <div class="media">
-
-            <div class="icon pull-left">
-              <a href="image-post.html" title="Read post: Post with single featured image"><img class="img-responsive" src="http://placehold.it/80x58" alt="" /></a>
-            </div>
-
-            <div class="media-body">
-              <p class="small">21 November 2014</p>
-              <p><a href="image-post.html" title="Read post: Post with single featured image">Post with single featured image</a></p>
-            </div>
-
-          </div>
-
-          <div class="media">
-
-            <div class="icon pull-left">
-              <a href="slider-post.html" title="Read post: Post with featured slider"><img class="img-responsive" src="http://placehold.it/80x58" alt="" /></a>
-            </div>
-
-            <div class="media-body">
-              <p class="small">21 November 2014</p>
-              <p><a href="slider-post.html" title="Read post: Post with featured slider">Post with featured slider</a></p>
-            </div>
-
-          </div>
-
-          <div class="media">
-
-            <div class="icon pull-left">
-              <a href="video-post.html" title="Read post: Post with featured video"><img class="img-responsive" src="http://placehold.it/80x58" alt="" /></a>
-            </div>
-
-            <div class="media-body">
-              <p class="small">21 November 2014</p>
-              <p><a href="video-post.html" title="Read post: Post with featured video">Post with featured video - Vimeo</a></p>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="widget">
-
-          <!--=== Search Form ===-->
-
-          <form id="search-form" action="#" method="post" novalidate>
-
-            <div class="form-group">
-              <div class="controls">
-                <input id="search-term" name="searchTerm" placeholder="Search" class="form-control input-lg" type="text">
-              </div>
-            </div><!-- End name input -->
-
-            <p class="text-center"><button name="submit" type="submit"><i class="fa fa-search"></i></button></p>
-
-          </form><!-- End search-form -->
-
-        </div>
-
-        <div class="widget">
-
-          <h4 class="widget-title">Categories</h4>
-
-          <ul>
-            <li><a href="#category">News</a></li>
-            <li><a href="#category">People</a></li>
-            <li><a href="#category">Technology</a></li>
-            <li><a href="#category">Travel</a></li>
-            <li><a href="#category">Thoughts</a></li>
-          </ul>
-
-        </div>
-
-        <div class="widget">
-
-          <h4 class="widget-title">Tags</h4>
-
-          <div class="tags-container">
-
-            <a class="tag" href="#tag">These</a>
-            <a class="tag" href="#tag">Are</a>
-            <a class="tag" href="#tag">Some</a>
-            <a class="tag" href="#tag">Awesome</a>
-            <a class="tag" href="#tag">Tags</a>
-            <a class="tag" href="#tag">These</a>
-            <a class="tag" href="#tag">Are</a>
-            <a class="tag" href="#tag">Some</a>
-            <a class="tag" href="#tag">Awesome</a>
-            <a class="tag" href="#tag">Tags</a>
-
-          </div>
-
-        </div>
-
-      </div>
+      <%= render :partial => 'sidebarPartial' %>
 
     </div>
 

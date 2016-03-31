@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
-  get 'blog/index'
-  get 'blog/post'
 
   devise_for :users
-  get 'home/index'
+  devise_scope :user do
+    get 'sign_in', to: 'devise/sessions#new'
+  end
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get 'tag/index'
 
-  # You can have the root of your site routed with "root"
+  get 'category/:id' => 'blog#by_category', :as => :posts_category
+  get 'tag/:id' => 'blog#by_tag', :as => :posts_tag
+  get 'date/:year/:month' => 'blog#by_date', :as => :posts_date
+  match 'blog/post/:id' => 'blog#show', :as => :post_details, :via => 'get'
+
+  resources :blog do
+    resource :comment
+  end
+  resources :portfolio
+  resources :categories
+
   root 'home#index'
 
   # Example of regular route:

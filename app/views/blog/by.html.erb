@@ -1,0 +1,22 @@
+<section class="white-bg padding-top-bottom">
+  <div class="container">
+    <div class="row">
+      <% case @from %>
+        <% when 'category' %>
+          <h1 class="section-title">By Category</h1>
+        <% when 'tag' %>
+          <h1 class="section-title">By Tag</h1>
+        <% when 'archive' %>
+          <h1 class="section-title">By Date</h1>
+      <% end %>
+
+      <p class="section-description">
+        <%= @description %>
+      </p>
+
+      <div class="post-by">
+
+      </div>
+    </div>
+  </div>
+</section>

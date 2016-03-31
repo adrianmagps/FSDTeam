@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap.js
 //= require jquery.easing.1.3.min

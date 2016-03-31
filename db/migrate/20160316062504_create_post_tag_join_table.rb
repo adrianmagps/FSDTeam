@@ -4,6 +4,5 @@ class CreatePostTagJoinTable < ActiveRecord::Migration
       t.references :post, index: true
       t.references :tag, index: true
     end
-
   end
 end

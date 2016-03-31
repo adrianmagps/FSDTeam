@@ -17,46 +17,50 @@ ActiveRecord::Schema.define(version: 20160316183818) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "Name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "categories_post", id: false, force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "category_id"
-  end
-
-  add_index "categories_post", ["category_id"], name: "index_categories_post_on_category_id", using: :btree
-  add_index "categories_post", ["post_id"], name: "index_categories_post_on_post_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.string   "Name"
-    t.string   "Email"
-    t.text     "Content"
-    t.integer  "ReplyTo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.integer  "post_id"
+    t.integer  "reply_to_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["reply_to_id"], name: "index_comments_on_reply_to_id", using: :btree
 
   create_table "portfolios", force: :cascade do |t|
-    t.string   "Name"
-    t.text     "Description"
-    t.string   "ExternalLink"
+    t.string   "name"
+    t.text     "description"
+    t.string   "externalLink"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
   end
 
+  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
-    t.string   "Title"
-    t.text     "Content"
-    t.boolean  "Visible"
-    t.text     "Summary"
-    t.integer  "Visits"
-    t.datetime "LastUpdate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "visible"
+    t.text     "summary"
+    t.integer  "visits"
+    t.datetime "lastUpdate"
+    t.integer  "category_id"
+    t.integer  "autor_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "posts", ["autor_id"], name: "index_posts_on_autor_id", using: :btree
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
 
   create_table "posts_tags", id: false, force: :cascade do |t|
     t.integer "post_id"
@@ -66,47 +70,53 @@ ActiveRecord::Schema.define(version: 20160316183818) do
   add_index "posts_tags", ["post_id"], name: "index_posts_tags_on_post_id", using: :btree
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
-  create_table "profiles", force: :cascade do |t|
-    t.string   "FirstName"
-    t.string   "LastName"
-    t.string   "BirthDate"
-    t.string   "Sex"
-    t.string   "Country"
-    t.string   "Address"
-    t.string   "Phone"
+  create_table "profiles", id: false, force: :cascade do |t|
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "birthDate"
+    t.string   "sex"
+    t.string   "country"
+    t.string   "address"
+    t.string   "phone"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
-    t.string   "Name"
-    t.string   "Description"
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "social_profiles", force: :cascade do |t|
-    t.string   "User"
-    t.integer  "ProfileType"
+  create_table "social_profiles", id: false, force: :cascade do |t|
+    t.string   "user"
+    t.integer  "profileType"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "social_profiles", ["user_id"], name: "index_social_profiles_on_user_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.string   "Name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "team_roles", force: :cascade do |t|
-    t.string   "Name"
-    t.string   "Description"
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "UserName"
+    t.string   "userName"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

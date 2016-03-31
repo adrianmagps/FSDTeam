@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
-  has_many :categories
-  has_many :tags
-  belongs_to :post
-  belongs_to :user
+  has_and_belongs_to_many :tags
+
+  has_many :comments
+
+  belongs_to :category
+
+  belongs_to :user, :foreign_key => :autor_id
 end

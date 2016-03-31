@@ -1,13 +1,15 @@
 class CreateProfiles < ActiveRecord::Migration
   def change
-    create_table :profiles do |t|
-      t.string :FirstName
-      t.string :LastName
-      t.string :BirthDate
-      t.string :Sex
-      t.string :Country
-      t.string :Address
-      t.string :Phone
+    create_table :profiles, :id => false do |t|
+      t.string :firstName
+      t.string :lastName
+      t.string :birthDate
+      t.string :sex
+      t.string :country
+      t.string :address
+      t.string :phone
+
+      t.references :user, index: true
 
       t.timestamps null: false
     end

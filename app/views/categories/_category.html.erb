@@ -1,0 +1,9 @@
+<tr id="<%= category.name %>_<%= category.id %>">
+  <td><%= category.id %></td>
+  <td><%= category.name %></td>
+  <td>0</td>
+  <td>
+    <%= link_to '', category, :class => 'btn btn-danger fa fa-remove', :method => :delete, :confirm => 'Ud. esta seguro?', :remote => true %>
+    <%= link_to '', category, :class => 'btn btn-success fa fa-edit' %>
+  </td>
+</tr>

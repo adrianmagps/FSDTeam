@@ -1,12 +1,16 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.string :Title
-      t.text :Content
-      t.boolean :Visible
-      t.text :Summary
-      t.integer :Visits
-      t.datetime :LastUpdate
+      t.string :title
+      t.text :content
+      t.boolean :visible
+      t.text :summary
+      t.integer :visits
+      t.datetime :lastUpdate
+
+      t.references :categories, index: true
+
+      t.integer :autor_id, index: true
 
       t.timestamps null: false
     end
